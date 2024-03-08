@@ -1,3 +1,5 @@
+'use client'
+
 import {
   CardTitle,
   CardDescription,
@@ -8,8 +10,15 @@ import {
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useForm } from 'react-hook-form';
 
 export function AuthForm() {
+  const form = useForm();
+
+  const handleSubmit = form.handleSubmit((data) => {
+    console.log(data);
+  });
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="py-10 text-center">
@@ -30,7 +39,7 @@ export function AuthForm() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -38,10 +47,11 @@ export function AuthForm() {
                     placeholder="m@example.com"
                     required
                     type="email"
+                    {...form.register('email')}
                   />
                 </div>
                 <Button className="w-full">Send Magic Link</Button>
-              </div>
+              </form>
             </CardContent>
           </Card>
         </div>
