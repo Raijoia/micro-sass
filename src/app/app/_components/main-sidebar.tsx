@@ -13,6 +13,7 @@ import {
 } from '@/components/dashboard/sidebar'
 import { usePathname } from 'next/navigation'
 import { HomeIcon, MixerVerticalIcon } from '@radix-ui/react-icons'
+import { UserDropdown } from './user-dropdown'
 
 export function MainSidebar() {
   const pathname = usePathname()
@@ -54,7 +55,7 @@ export function MainSidebar() {
         </SidebarNav>
       </SidebarMain>
       <SidebarFooter>
-        <h1>User</h1>
+        <UserDropdown />
       </SidebarFooter>
     </Sidebar>
   )
