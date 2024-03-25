@@ -12,6 +12,7 @@ import {
   SidebarFooter,
 } from '@/components/dashboard/sidebar'
 import { usePathname } from 'next/navigation'
+import { HomeIcon, MixerVerticalIcon } from '@radix-ui/react-icons'
 
 export function MainSidebar() {
   const pathname = usePathname()
@@ -29,12 +30,14 @@ export function MainSidebar() {
         <SidebarNav>
           <SidebarNavMain>
             <SidebarNavLink href="/app" active={isActive('/app')}>
+              <HomeIcon className="w-3 h-3 mr-3" />
               Tarefas
             </SidebarNavLink>
             <SidebarNavLink
               href="/app/settings"
               active={isActive('/app/settings')}
             >
+              <MixerVerticalIcon className="w-3 h-3 mr-3" />
               Configurações
             </SidebarNavLink>
           </SidebarNavMain>
